@@ -1,0 +1,8 @@
+default_profile = "mariadb"
+[profiles.mariadb]
+adapter = "mysql"
+theme = "native"
+limit = 100000
+keymap_name = ["vscode"]
+user = "root"
+password = "joaorique"
