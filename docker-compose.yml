@@ -1,0 +1,11 @@
+services:
+  db:
+    image: mariadb:11.2.4
+    restart: always
+    environment:
+      MARIADB_ROOT_PASSWORD: 123456
+      MARIADB_DATABASE: api-yt-project
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
+    ports:
+      - "3306:3306"
