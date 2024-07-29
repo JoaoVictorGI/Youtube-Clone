@@ -1,8 +1,8 @@
 {
-  "name": "projectnode",
+  "name": "yt-api-project",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A youtube-like api for learning Node.js and Express",
+  "main": "./src/server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx watch src/server.ts",
