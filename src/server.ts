@@ -1,29 +1,16 @@
 import express from "express";
+import { userRoutes } from "./routes/user.routes";
+import { videosRoutes } from "./routes/videos.routes";
+import { config } from "dotenv";
+
+config();
+
 const app = express();
 const port = 4000;
 
 app.use(express.json());
-
-let req: any;
-
-app.post("/userdata/:id", (request, response) => {
-  console.log((req = request.body));
-  console.log(request.params);
-  console.log(request.query);
-  console.log(request.headers);
-  response.status(200).json({ success: true });
-});
-
-app.get("/users", (request, response) => {
-  response.json([
-    { name: "Paulo", age: 22 },
-    { name: "Jose", age: 30 },
-  ]);
-});
-
-app.get("/", (request, response) => {
-  response.json(req);
-});
+app.use("/user", userRoutes);
+app.use("/videos", videosRoutes);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

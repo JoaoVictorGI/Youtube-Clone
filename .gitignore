@@ -39,7 +39,7 @@ bower_components
 build/Release
 
 # Dependency directories
-node_modules/
+node_modules/*
 jspm_packages/
 package-lock.json
 pnpm-lock.yaml
@@ -267,4 +267,5 @@ coverage
 api.md
 index.md
 *.sql
+!database/*.sql
 .harlequin.toml
