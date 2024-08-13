@@ -12,3 +12,12 @@ services:
       - ./database/data:/var/lib/mysql:Z
     ports:
       - "3306:3306"
+  #  server:
+  #  build:
+  #  context: .
+  #env_file:
+  #  - .env
+  #environment:
+  # NODE_ENV: production
+  #ports:
+  # - 4000:4000

@@ -1,6 +1,6 @@
 import { compare, hash } from "bcrypt";
 import { Request, Response } from "express";
-import { sign } from "jsonwebtoken";
+import { sign, verify } from "jsonwebtoken";
 import { v4 as uuidv4 } from "uuid";
 import { pool } from "../../../mysql";
 
@@ -10,7 +10,7 @@ class UserRepository {
     // Extrai nome, email e senha do corpo da requisição
     const { name, email, password } = req.body;
     // Conecta no banco de dados
-    pool.getConnection((err: any, connection: any) => {
+    pool.getConnection((_err: any, connection: any) => {
       // Gera um hash da senha
       hash(password, 10, (err, hash) => {
         if (err) {
@@ -21,7 +21,7 @@ class UserRepository {
         connection.query(
           "INSERT INTO users (user_id, name, email, password) VALUES (?,?,?,?)",
           [uuidv4(), name, email, hash], // Gera um ID
-          (error: any, result: any, fields: any) => {
+          (error: any, _result: any, _fields: any) => {
             // Libera a conexão
             connection.release();
             if (error) {
@@ -39,12 +39,12 @@ class UserRepository {
     // Extrai email e senha do corpo da requisição
     const { email, password } = req.body;
     // Conecta no banco de dados
-    pool.getConnection((err: any, connection: any) => {
+    pool.getConnection((_err: any, connection: any) => {
       // Busca pelo email do usuário no banco de dados
       connection.query(
         "SELECT * FROM users WHERE email = ?",
         [email],
-        (error: any, results: any, fields: any) => {
+        (error: any, results: any, _fields: any) => {
           connection.release();
           if (error) {
             return res.status(400).json({ error: "Erro na autenticação" });
@@ -76,6 +76,38 @@ class UserRepository {
         },
       );
     });
+  }
+
+  getUser(req: any, res: any) {
+    const decode: any = verify(
+      req.headers.authorization,
+      process.env.SECRET as string,
+    );
+    if (decode.email) {
+      pool.getConnection((_error, conn) => {
+        conn.query(
+          "SELECT * FROM users WHERE email=?",
+          [decode.email],
+          (error, result, _fields) => {
+            conn.release();
+            if (error) {
+              return res.status(400).send({
+                error: error,
+                res: null,
+              });
+            }
+
+            return res.status(201).send({
+              user: {
+                nome: result[0].name,
+                email: result[0].email,
+                id: result[0].user_id,
+              },
+            });
+          },
+        );
+      });
+    }
   }
 }
 
