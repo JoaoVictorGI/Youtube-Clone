@@ -1,30 +1,37 @@
-# React + TypeScript + Vite
+# YouTube React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A front-end for [Youtube-API](https://github.com/JoaoVictorGI/youtube-api) in React.js
 
-Currently, two official plugins are available:
+## Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[![My Skills](https://skillicons.dev/icons?i=ts,css,materialui,pnpm,react,vite,panda)](https://skillicons.dev)
 
-## Expanding the ESLint configuration
+## Contribute
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. **Clone project**: `git clone https://github.com/JoaoVictorGI/YouTube-React.git`
+2. **Create feature/branch**: `git checkout -b feature/NAME`
 
-- Configure the top-level `parserOptions` property like this:
+## How to run
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+1. Install pnpm: https://pnpm.io/pt/installation
+2. Open a terminal and run the project:
+   ```shell
+   pnpm dev
+   ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## How to build and preview
+
+1. Open a terminal and execute:
+   ```shell
+   pnpm build
+   ```
+2. And then preview:
+   ```shell
+   pnpm preview
+   ```
+
+## License
+
+This software is available under the following licenses:
+
+- [MIT](https://www.tldrlegal.com/license/mit-license)
