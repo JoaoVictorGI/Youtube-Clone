@@ -13,8 +13,9 @@ import {
   SearchInputContainer,
 } from "./styles";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../../context/userContext";
+import Dropdown from "../dropdown";
 
 interface IProps {
   openMenu: boolean;
@@ -25,6 +26,8 @@ function Header({ openMenu, setOpenMenu }: IProps) {
   const { login, logOut, user } = useContext(UserContext);
 
   const navigate = useNavigate();
+
+  const [openDrop, setOpenDrop] = useState(false);
 
   return (
     <Container>
@@ -37,6 +40,7 @@ function Header({ openMenu, setOpenMenu }: IProps) {
         </ButtonContainer>
         <img
           style={{ cursor: "pointer", width: "100px" }}
+          onClick={() => navigate("/")}
           alt="YouTube Logo"
           src={Logo}
         />
@@ -71,9 +75,10 @@ function Header({ openMenu, setOpenMenu }: IProps) {
         </ButtonContainer>
         {login ? (
           <>
-            <AccountContainer onClick={() => navigate("/login")}>
+            <AccountContainer onClick={() => setOpenDrop(!openDrop)}>
               <span style={{ fontWeight: "600" }}>{user.nome.charAt(0)}</span>
             </AccountContainer>
+            {openDrop ? <Dropdown /> : null}
             <ButtonContainer
               style={{ marginLeft: "10px" }}
               onClick={() => logOut()}

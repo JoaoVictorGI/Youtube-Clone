@@ -52,6 +52,19 @@ export const UserStorage = ({ children }: any) => {
       });
   };
 
+  const handleSignUp = (name: string, email: string, password: string) => {
+    api
+      .post("/user/sign-up", {
+        name,
+        email,
+        password,
+      })
+      .catch((error) => {
+        console.log("Não foi possível fazer o cadastro");
+        return error;
+      });
+  };
+
   return (
     <UserContext.Provider
       value={{
@@ -59,6 +72,7 @@ export const UserStorage = ({ children }: any) => {
         user,
         handleLogin,
         logOut,
+        handleSignUp,
       }}
     >
       {children}

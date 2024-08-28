@@ -8,6 +8,7 @@ import Library from "./pages/library";
 import History from "./pages/history";
 import { UserStorage } from "./context/userContext";
 import Login from "./pages/login";
+import SignUp from "./pages/sign-up";
 
 function App() {
   const [openMenu, setOpenMenu] = useState(true);
@@ -33,9 +34,8 @@ function App() {
                 <Route path="/library" element={<Library />} />
                 <Route path="/history" element={<History />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/sign-up" element={<SignUp />} />
                 {
-                  // TODO: Implementar um menu dropdown no ícone de usuário
-                  // TODO: Tela de cadastro
                   // TODO: Criar tela e integração para cadastro de vídeo
                   // TODO: Implementação de pesquisa
                 }

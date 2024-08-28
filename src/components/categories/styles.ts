@@ -8,6 +8,7 @@ export const Container = styled("div", {
     top: "55px",
     display: "flex",
     backgroundColor: "#fff",
+    zIndex: "-1",
   },
 });
 

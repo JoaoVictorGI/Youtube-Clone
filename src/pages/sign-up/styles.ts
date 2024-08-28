@@ -48,9 +48,3 @@ export const Input = styled("input", {
     },
   },
 });
-
-export const Link = styled("a", {
-  base: {
-    color: "#065fd4",
-  },
-});
