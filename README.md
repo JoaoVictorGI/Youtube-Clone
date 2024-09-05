@@ -1,37 +1,37 @@
-# YouTube React
+# YouTube Clone
 
-A front-end for [Youtube-API](https://github.com/JoaoVictorGI/youtube-api) in React.js
+A Youtube Clone using Express.js and React without videos, just thumbnails/images
 
-## Technologies
+## Tecnologias
 
-[![My Skills](https://skillicons.dev/icons?i=ts,css,materialui,pnpm,react,vite,panda)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=ts,css,materialui,pnpm,react,vite,nodejs,express,docker,mysql)](https://skillicons.dev)
 
-## Contribute
+## Como contribuir
 
-1. **Clone project**: `git clone https://github.com/JoaoVictorGI/YouTube-React.git`
-2. **Create feature/branch**: `git checkout -b feature/NAME`
+1. **Clone o projeto**: `git clone https://github.com/JoaoVictorGI/YouTube-Clone.git`
+2. **Crie uma feature/branch**: `git checkout -b feature/NAME`
 
-## How to run
+## Como rodar
 
-1. Install pnpm: https://pnpm.io/pt/installation
-2. Open a terminal and run the project:
+1. Instale o pnpm: https://pnpm.io/pt/installation
+2. Abra um terminal e rode o projeto:
    ```shell
    pnpm dev
    ```
 
-## How to build and preview
+## Como compilar e visualizar
 
-1. Open a terminal and execute:
+1. Abra um terminal e execute:
    ```shell
    pnpm build
    ```
-2. And then preview:
+2. Então visualize com o comando:
    ```shell
    pnpm preview
    ```
 
-## License
+## Licença
 
-This software is available under the following licenses:
+Este software está disponível sob a seguinte licença:
 
 - [MIT](https://www.tldrlegal.com/license/mit-license)
