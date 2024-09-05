@@ -6,7 +6,7 @@
   "scripts": {
     "docker": "cd server && docker-compose up -d",
     "docker-down": "cd server && docker compose down -v",
-    "dev": "pnpm --filter client dev & pnpm --filter server dev & pnpm run docker"
+    "dev": "pnpm --filter client dev & pnpm --filter server dev"
   },
   "keywords": [],
   "author": "",

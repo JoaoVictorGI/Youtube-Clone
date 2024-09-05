@@ -18,6 +18,10 @@ Um clone do YouTube usando Express.js e React, sem vídeos, apenas miniaturas/im
    ```shell
    pnpm dev
    ```
+3. Rode o docker do banco de dados:
+   ```shell
+   pnpm docker
+   ```
 
 ## Como compilar e visualizar
 
