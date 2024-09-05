@@ -1,6 +1,6 @@
 # YouTube Clone
 
-A Youtube Clone using Express.js and React without videos, just thumbnails/images
+Um clone do YouTube usando Express.js e React, sem vídeos, apenas miniaturas/imagens.
 
 ## Tecnologias
 
