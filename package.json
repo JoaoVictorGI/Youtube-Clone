@@ -1,0 +1,19 @@
+{
+  "name": "youtube-monorepo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docker": "cd server && docker-compose up -d",
+    "docker-down": "cd server && docker compose down -v",
+    "dev": "pnpm --filter client dev & pnpm --filter server dev & pnpm run docker"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "type": "module"
+}
