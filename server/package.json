@@ -1,0 +1,36 @@
+{
+	"name": "server",
+	"version": "1.0.0",
+	"description": "A youtube-like api for learning Node.js and Express",
+	"main": "./src/server.ts",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "tsx watch src/server.ts",
+		"lint": "biome check --write src --diagnostic-level=error",
+		"build": "tsc --build",
+		"clean": "tsc --build --clean",
+		"start": "node ./dist/server.js"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@types/jsonwebtoken": "^9.0.6",
+		"bcrypt": "^5.1.1",
+		"cors": "^2.8.5",
+		"dotenv": "^16.4.5",
+		"express": "^4.19.2",
+		"jsonwebtoken": "^9.0.2",
+		"mysql": "^2.18.1",
+		"uuid": "^10.0.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.8.3",
+		"@types/bcrypt": "^5.0.2",
+		"@types/express": "^4.17.21",
+		"@types/mysql": "^2.15.26",
+		"@types/uuid": "^10.0.0",
+		"tsx": "^4.16.2",
+		"typescript": "^5.5.4"
+	}
+}

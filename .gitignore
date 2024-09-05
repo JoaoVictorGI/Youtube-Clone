@@ -146,3 +146,5 @@
 **/*.sw?
 **/styled-system
 **/styled-system-studio
+
+server/database/data

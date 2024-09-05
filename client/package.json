@@ -1,0 +1,30 @@
+{
+  "name": "client",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "prepare": "panda codegen",
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "biome check --write src --diagnostic-level=error",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@types/react-router-dom": "^5.3.3",
+    "axios": "^1.7.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-material-symbols": "^4.4.0",
+    "react-router-dom": "^6.26.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3",
+    "@pandacss/dev": "^0.44.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.3.4"
+  }
+}

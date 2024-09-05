@@ -1,0 +1,23 @@
+services:
+  db:
+    image: mariadb:11.2.4
+    restart: always
+    env_file:
+      - .env
+    environment:
+      MARIADB_ROOT_PASSWORD: "${MARIADB_ROOT_PASSWORD}"
+      MARIADB_DATABASE: "${MARIADB_DATABASE}"
+    volumes:
+      - ./database:/docker-entrypoint-initdb.d
+      - ./database/data:/var/lib/mysql:Z
+    ports:
+      - "3306:3306"
+  #  server:
+  #  build:
+  #  context: .
+  #env_file:
+  #  - .env
+  #environment:
+  # NODE_ENV: production
+  #ports:
+  # - 4000:4000
