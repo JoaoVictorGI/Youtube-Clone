@@ -38,6 +38,7 @@ function Header({ openMenu, setOpenMenu }: IProps) {
         >
           <MaterialSymbol icon="menu" size={28} grade={-25} weight={200} />
         </ButtonContainer>
+        {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
         <img
           style={{ cursor: "pointer", width: "100px" }}
           onClick={() => navigate("/")}
@@ -76,7 +77,7 @@ function Header({ openMenu, setOpenMenu }: IProps) {
         {login ? (
           <>
             <AccountContainer onClick={() => setOpenDrop(!openDrop)}>
-              <span style={{ fontWeight: "600" }}>{user.nome.charAt(0)}</span>
+              <span style={{ fontWeight: "600" }}>{user?.name?.charAt(0)}</span>
             </AccountContainer>
             {openDrop ? <Dropdown /> : null}
             <ButtonContainer

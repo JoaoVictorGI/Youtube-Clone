@@ -104,7 +104,7 @@ class UserRepository {
 
 						return res.status(201).send({
 							user: {
-								nome: result[0].name,
+								name: result[0].name,
 								email: result[0].email,
 								id: result[0].user_id,
 							},
