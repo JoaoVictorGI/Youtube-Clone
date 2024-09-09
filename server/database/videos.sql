@@ -2,6 +2,7 @@ create table if not exists videos
 (
     video_id      varchar(45)  not null
         primary key,
+    thumbnail     varchar(100) not null,
     title         varchar(100) not null,
     description   varchar(100) null,
     user_id varchar(45)  not null,

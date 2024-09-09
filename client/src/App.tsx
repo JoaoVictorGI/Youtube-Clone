@@ -9,6 +9,7 @@ import Home from "./pages/home"
 import Library from "./pages/library"
 import Login from "./pages/login"
 import SignUp from "./pages/sign-up"
+import Upload from "./pages/upload"
 
 function App() {
   const [openMenu, setOpenMenu] = useState(true)
@@ -35,6 +36,7 @@ function App() {
                 <Route path="/history" element={<History />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/sign-up" element={<SignUp />} />
+                <Route path="/upload" element={<Upload />} />
                 {
                   // TODO: Criar tela e integração para cadastro de vídeo
                   // TODO: Implementação de pesquisa

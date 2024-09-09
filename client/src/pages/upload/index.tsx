@@ -11,33 +11,29 @@ function Upload() {
 
   return (
     <Container>
-      <h1 style={{ fontSize: "32px" }}>Fazer login</h1>
+      <h1 style={{ fontSize: "32px" }}>Novo vídeo</h1>
       <Input
         type="thumbnail"
         value={thumbnail}
-        placeHolder="Insira o link da thumnail aqui"
+        placeholder="Insira o link da thumnail aqui"
         onChange={(e) => setThumbnail(e.target.value)}
       />
       <Input
         type="title"
         value={title}
-        placeHolder="Título"
+        placeholder="Título"
         onChange={(e) => setTitle(e.target.value)}
       />
       <Input
         type="description"
         value={description}
-        placeHolder="Descrição"
+        placeholder="Descrição"
         onChange={(e) => setDescription(e.target.value)}
       />
 
       <Button onClick={() => handleUpload(thumbnail, title, description)}>
-        Entrar
+        Enviar
       </Button>
-      <p>
-        Não tem uma conta?<Link href="sign-up"> Clique aqui</Link> para criar
-        uma conta
-      </p>
     </Container>
   )
 }

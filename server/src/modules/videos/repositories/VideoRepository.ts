@@ -6,13 +6,13 @@ class VideoRepository {
 	// Método para criar novo usuário
 	create(req: Request, res: Response) {
 		// Extrai titulo, descrição e id do usuário do corpo da requisição
-		const { title, description, user_id } = req.body
+		const { thumbnail, title, description, user_id } = req.body
 		// Conecta no banco de dados
 		pool.getConnection((err: any, connection: any) => {
 			// Insere um novo vídeo no banco de dados
 			connection.query(
-				"INSERT INTO videos (video_id, user_id, title, description) VALUES (?,?,?,?)",
-				[uuidv4(), user_id, title, description], // Gera um ID
+				"INSERT INTO videos (video_id, user_id, thumbnail, title, description) VALUES (?,?,?,?,?)",
+				[uuidv4(), user_id, thumbnail, title, description], // Gera um ID
 				(error: any, result: any, fields: any) => {
 					// Libera a conexão
 					connection.release()
