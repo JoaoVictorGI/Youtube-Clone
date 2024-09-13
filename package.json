@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "docker": "cd server && docker-compose up -d",
+    "docker-up": "cd server && docker-compose up -d",
     "docker-down": "cd server && docker compose down -v",
     "dev": "pnpm --filter client dev & pnpm --filter server dev",
     "lint": "pnpm --filter client lint & pnpm --filter server lint"
