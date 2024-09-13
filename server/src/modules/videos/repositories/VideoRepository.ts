@@ -1,4 +1,5 @@
 import type { Request, Response } from "express"
+import type { MysqlError, PoolConnection } from "mysql"
 import { v4 as uuidv4 } from "uuid"
 import { pool } from "../../../mysql"
 
@@ -8,12 +9,12 @@ class VideoRepository {
 		// Extrai titulo, descrição e id do usuário do corpo da requisição
 		const { thumbnail, title, description, user_id } = req.body
 		// Conecta no banco de dados
-		pool.getConnection((err: any, connection: any) => {
+		pool.getConnection((err: MysqlError | null, connection: PoolConnection) => {
 			// Insere um novo vídeo no banco de dados
 			connection.query(
 				"INSERT INTO videos (video_id, user_id, thumbnail, title, description) VALUES (?,?,?,?,?)",
 				[uuidv4(), user_id, thumbnail, title, description], // Gera um ID
-				(error: any, result: any, fields: any) => {
+				(error: Error | null, _result: any, _fields: any) => {
 					// Libera a conexão
 					connection.release()
 					if (error) {
@@ -29,11 +30,11 @@ class VideoRepository {
 		// Extrai titulo, descrição e id do usuário do corpo da requisição
 		const { user_id } = req.query
 		// Conecta no banco de dados
-		pool.getConnection((err: any, connection: any) => {
+		pool.getConnection((err: MysqlError | null, connection: PoolConnection) => {
 			connection.query(
 				"SELECT * FROM videos WHERE user_id = ?",
 				[user_id],
-				(error: any, results: any, fields: any) => {
+				(error: Error | null, results: any, fields: any) => {
 					// Libera a conexão
 					connection.release()
 					if (error) {
@@ -52,11 +53,11 @@ class VideoRepository {
 		// Extrai titulo, descrição e id do usuário do corpo da requisição
 		const { search } = req.query
 		// Conecta no banco de dados
-		pool.getConnection((err: any, connection: any) => {
+		pool.getConnection((err: MysqlError | null, connection: PoolConnection) => {
 			connection.query(
 				"SELECT * FROM videos WHERE title OR description LIKE ?",
 				[`%${search}%`],
-				(error: any, results: any, fields: any) => {
+				(error: Error | null, results: any, fields: any) => {
 					// Libera a conexão
 					connection.release()
 					if (error) {
