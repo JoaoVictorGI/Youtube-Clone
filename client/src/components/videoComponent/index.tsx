@@ -11,15 +11,15 @@ import {
 function VideoComponent({ video }: object) {
   return (
     <Container>
-      <ImageBanner src={video.image} />
+      <ImageBanner src={video.thumbnail} />
       <TitleContainer>
-        <ChannelImage>{video.channel.charAt(0)}</ChannelImage>
+        <ChannelImage>{video.name.charAt(0)}</ChannelImage>
       </TitleContainer>
       <TextContainer>
         <Title>{video.title}</Title>
-        <TextCard>{video.channel}</TextCard>
+        <TextCard>{video.name}</TextCard>
         <TextCard>
-          {video.views} visualuzações - há {video.time}
+          1000 visualuzações - há 2 anos
         </TextCard>
       </TextContainer>
     </Container>

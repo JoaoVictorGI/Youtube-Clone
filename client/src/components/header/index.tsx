@@ -58,7 +58,7 @@ function Header({ openMenu, setOpenMenu }: IProps) {
         </ButtonContainer>
       </SearchContainer>
       <HeaderButtons>
-        <ButtonContainer>
+        <ButtonContainer onClick={() => navigate("/upload")}>
           <MaterialSymbol
             icon="video_call"
             size={28}

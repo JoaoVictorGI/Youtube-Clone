@@ -144,6 +144,8 @@ export const UserStorage = ({ children }: { children: React.ReactNode }) => {
       )
       .then((response) => {
         console.log("Video enviado com sucesso", response.data)
+
+        window.location.href = "/"
       })
       .catch((error) => {
         console.log("Não foi possível fazer o upload do vídeo: ", error)

@@ -1,6 +1,10 @@
 import { verify } from "jsonwebtoken"
 
-const auth = (req: any, res: any, next: any) => {
+const auth = (
+	req: any,
+	res: any,
+	next: any
+) => {
 	try {
 		const decode = verify(req.headers.authorization, "segredo")
 		req.user = decode

@@ -14,7 +14,7 @@ class VideoRepository {
 			connection.query(
 				"INSERT INTO videos (video_id, user_id, thumbnail, title, description) VALUES (?,?,?,?,?)",
 				[uuidv4(), user_id, thumbnail, title, description], // Gera um ID
-				(error: Error | null, _result: any, _fields: any) => {
+				(error: Error | null, _result, _fields) => {
 					// Libera a conexão
 					connection.release()
 					if (error) {
@@ -34,7 +34,7 @@ class VideoRepository {
 			connection.query(
 				"SELECT * FROM videos WHERE user_id = ?",
 				[user_id],
-				(error: Error | null, results: any, fields: any) => {
+				(error: Error | null, results, _fields) => {
 					// Libera a conexão
 					connection.release()
 					if (error) {
@@ -48,6 +48,26 @@ class VideoRepository {
 			)
 		})
 	}
+getAllVideos(req: Request, res: Response) {
+		// Conecta no banco de dados
+		pool.getConnection((err: MysqlError | null, connection: PoolConnection) => {
+			connection.query(
+				"SELECT videos.*, users.name FROM videos JOIN users ON videos.user_id = users.user_id",
+				(error: Error | null, results, _fields) => {
+					// Libera a conexão
+					connection.release()
+					if (error) {
+						return res.status(400).json({ error: "Erro ao buscar vídeo" })
+					}
+					return res.status(200).json({
+						message: "Vídeos retornados com sucesso",
+						videos: results,
+					})
+				}
+			)
+		})
+	}
+	
 
 	searchVideos(req: Request, res: Response) {
 		// Extrai titulo, descrição e id do usuário do corpo da requisição
@@ -57,7 +77,7 @@ class VideoRepository {
 			connection.query(
 				"SELECT * FROM videos WHERE title OR description LIKE ?",
 				[`%${search}%`],
-				(error: Error | null, results: any, fields: any) => {
+				(error: Error | null, results, _fields) => {
 					// Libera a conexão
 					connection.release()
 					if (error) {

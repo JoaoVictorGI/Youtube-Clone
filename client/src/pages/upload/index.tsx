@@ -1,6 +1,6 @@
 import { useContext, useState } from "react"
 import { UserContext } from "../../context/userContext"
-import { Button, Container, Input, Link } from "./styles"
+import { Button, Container, Input } from "./styles"
 
 function Upload() {
   const { handleUpload } = useContext(UserContext)

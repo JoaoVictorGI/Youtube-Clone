@@ -1,32 +1,35 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
   "organizeImports": {
-    "enabled": true
+    "enabled": true,
   },
   "files": {
     "ignoreUnknown": true,
-    "ignore": ["**/dist", "**/node_modules", "**/database"]
+    "ignore": ["**/dist", "**/node_modules", "**/database"],
   },
   "formatter": {
-    "enabled": true
+    "enabled": true,
   },
   "javascript": {
     "formatter": {
       "semicolons": "asNeeded",
       "trailingCommas": "es5",
-      "quoteStyle": "double"
-    }
+      "quoteStyle": "double",
+    },
   },
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": true,
       "suspicious": {
-        "noExplicitAny": "off"
+        "noExplicitAny": "off",
       },
       "correctness": {
-        "noUnusedImports": "warn"
-      }
-    }
-  }
+        "noUnusedImports": "warn",
+      },
+      "suspicious": {
+        "noExplicitAny": "error",
+      },
+    },
+  },
 }
