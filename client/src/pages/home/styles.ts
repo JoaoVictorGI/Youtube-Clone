@@ -8,15 +8,6 @@ export const Container = styled("div", {
     columnGap: "20px",
     rowGap: "50px",
     paddingTop: "14px",
-  },
-  variants: {
-    variant: {
-      opened: {
-        gridTemplateColumns: "4",
-      },
-      closed: {
-        gridTemplateColumns: "5",
-      },
-    },
+    gridTemplateColumns: "4",
   },
 })
