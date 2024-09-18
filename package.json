@@ -16,5 +16,8 @@
     "client",
     "server"
   ],
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3"
+  }
 }

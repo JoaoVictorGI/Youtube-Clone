@@ -16,7 +16,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-material-symbols": "^4.4.0",
-    "react-router-dom": "^6.26.0"
+    "react-router-dom": "^6.26.0",
+    "react-loading-skeleton": "^3.4.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
