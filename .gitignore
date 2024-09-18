@@ -50,6 +50,7 @@
 
 # Optional npm cache directory
 **/.npm
+**/.npmrc
 
 # Optional eslint cache
 **/.eslintcache
@@ -120,6 +121,7 @@
 
 # Stores VSCode versions used for testing VSCode extensions
 **/.vscode-test
+**/.vscode
 
 # Yarn v2
 **/.yarn/cache
