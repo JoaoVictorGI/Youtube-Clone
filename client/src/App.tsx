@@ -13,12 +13,17 @@ import Upload from "./pages/upload"
 
 function App() {
   const [openMenu, setOpenMenu] = useState(true)
+  const [searchTerm, setSearchTerm] = useState("")
 
   return (
     <UserStorage>
       <BrowserRouter>
         <div>
-          <Header openMenu={openMenu} setOpenMenu={setOpenMenu} />
+          <Header
+            openMenu={openMenu}
+            setOpenMenu={setOpenMenu}
+            onSearch={setSearchTerm}
+          />
           <div style={{ width: "100%", display: "flex" }}>
             <Menu openMenu={openMenu} />
             <div
@@ -31,7 +36,10 @@ function App() {
               }}
             >
               <Routes>
-                <Route path="/" element={<Home openMenu={openMenu} />} />
+                <Route
+                  path="/"
+                  element={<Home searchTerm={searchTerm} openMenu={openMenu} />}
+                />
                 <Route path="/library" element={<Library />} />
                 <Route path="/history" element={<History />} />
                 <Route path="/login" element={<Login />} />

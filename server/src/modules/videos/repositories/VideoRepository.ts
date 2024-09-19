@@ -48,7 +48,7 @@ class VideoRepository {
 			)
 		})
 	}
-getAllVideos(req: Request, res: Response) {
+	getAllVideos(req: Request, res: Response) {
 		// Conecta no banco de dados
 		pool.getConnection((err: MysqlError | null, connection: PoolConnection) => {
 			connection.query(
@@ -67,7 +67,6 @@ getAllVideos(req: Request, res: Response) {
 			)
 		})
 	}
-	
 
 	searchVideos(req: Request, res: Response) {
 		// Extrai titulo, descrição e id do usuário do corpo da requisição
@@ -75,7 +74,7 @@ getAllVideos(req: Request, res: Response) {
 		// Conecta no banco de dados
 		pool.getConnection((err: MysqlError | null, connection: PoolConnection) => {
 			connection.query(
-				"SELECT * FROM videos WHERE title OR description LIKE ?",
+				"SELECT videos.*, users.name FROM videos JOIN users ON videos.user_id = users.user_id WHERE title OR description LIKE ?",
 				[`%${search}%`],
 				(error: Error | null, results, _fields) => {
 					// Libera a conexão

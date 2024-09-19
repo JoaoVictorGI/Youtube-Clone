@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
 import Categories from "../../components/categories"
 import VideoComponent from "../../components/videoComponent"
-import { Container } from "./styles"
 import VideoIsLoadingComponent from "../../components/videoIsLoading"
+import { Container } from "./styles"
 
 interface IProps {
   openMenu: boolean
+  searchTerm: string
 }
 
 interface Video {
@@ -17,11 +18,15 @@ interface Video {
   name: string
 }
 
-function Home({ openMenu }: IProps) {
+function Home({ openMenu, searchTerm }: IProps) {
   const [videos, setVideo] = useState<Video[]>([])
 
   useEffect(() => {
-    fetch("http://localhost:4000/videos/get-all-videos")
+    const url = searchTerm
+      ? `http://localhost:4000/videos/search?search=${searchTerm}`
+      : "http://localhost:4000/videos/get-all-videos"
+
+    fetch(url)
       .then((response) => response.json())
       .then((data) => {
         setVideo(data.videos)
@@ -29,7 +34,7 @@ function Home({ openMenu }: IProps) {
       .catch((error) => {
         console.error("Erro buscando vídeos: ", error)
       })
-  }, [])
+  }, [searchTerm])
 
   return (
     <Container>

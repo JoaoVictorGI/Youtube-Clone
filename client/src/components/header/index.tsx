@@ -1,3 +1,4 @@
+import type React from "react"
 import { useContext, useState } from "react"
 import { MaterialSymbol } from "react-material-symbols"
 import { useNavigate } from "react-router-dom"
@@ -20,14 +21,19 @@ import {
 interface IProps {
   openMenu: boolean
   setOpenMenu: (openMenu: boolean) => void
+  onSearch: (term: string) => void
 }
 
-function Header({ openMenu, setOpenMenu }: IProps) {
+function Header({ openMenu, setOpenMenu, onSearch }: IProps) {
   const { login, logOut, user } = useContext(UserContext)
-
   const navigate = useNavigate()
-
   const [openDrop, setOpenDrop] = useState(false)
+  const [searchTerm, setSearchTerm] = useState("")
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value)
+    onSearch(event.target.value)
+  }
 
   return (
     <Container>
@@ -38,7 +44,6 @@ function Header({ openMenu, setOpenMenu }: IProps) {
         >
           <MaterialSymbol icon="menu" size={28} grade={-25} weight={200} />
         </ButtonContainer>
-        {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
         <img
           style={{ cursor: "pointer", width: "100px" }}
           onClick={() => navigate("/")}
@@ -48,7 +53,12 @@ function Header({ openMenu, setOpenMenu }: IProps) {
       </LogoContainer>
       <SearchContainer>
         <SearchInputContainer>
-          <SearchInput placeholder="Pesquisar" />
+          <SearchInput
+            placeholder="Pesquisar"
+            type="text"
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
         </SearchInputContainer>
         <SearchButton>
           <MaterialSymbol icon="search" size={28} grade={-25} weight={200} />
